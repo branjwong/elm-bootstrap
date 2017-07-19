@@ -128,12 +128,12 @@ radioButton checked options children =
             -- hides the radio input element, only showing the bootstrap button
             Attributes.attribute "data-toggle" "button"
     in
-        Html.label
-            (classList [ ( "active", checked ) ]
-                :: hideRadio
-                :: ButtonInternal.buttonAttributes options
-            )
-            (Html.input [ Attributes.type_ "radio", Attributes.checked checked, Attributes.autocomplete False ] [] :: children)
+    Html.button
+        (classList [ ( "active", checked ) ]
+            :: hideRadio
+            :: ButtonInternal.buttonAttributes options
+        )
+        (Html.input [ Attributes.type_ "radio", Attributes.checked checked, Attributes.autocomplete False ] [] :: children)
 
 
 {-| Create a checkbox input that appears as a button
